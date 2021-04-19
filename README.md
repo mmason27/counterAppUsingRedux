@@ -1,1 +1,1 @@
-![Demo of Counter App Using React and Redux](demo/demo.gif)
+![Demo of Counter App Using React and Redux](demo/counterAppGif.gif)
