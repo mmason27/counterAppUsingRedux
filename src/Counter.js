@@ -17,6 +17,7 @@ function Counter(props) {
 
     const handleOnChange = (e) => {
         setValue(parseInt(e.target.value))
+
     }
 
     const handleAdd = () => {
@@ -29,15 +30,18 @@ function Counter(props) {
 
     return (
         <div>
-            <h1>Add/Subtract Counter</h1>
-            <input type="text" onChange={handleOnChange}/>
-            <button onClick={handleAdd}>Add</button>
-            <button onClick={handleSubtract}>Subtract</button>
-
-            <h1>Increment/Decrement By One Counter</h1>
+            <h1 className="actionHeaders">Add or Subtract</h1>
+            <div className="actionButtons">
+                <input type="text" onChange={handleOnChange} placeholder="Enter a number"/>
+                <button onClick={handleAdd}>Add</button>
+                <button onClick={handleSubtract}>Subtract</button>
+            </div>
             
-            <button onClick={handleIncrement}>Increment</button>
-            <button onClick={handleDecrement}>Decrement</button>
+            <h1 className="actionHeaders">Increment or Decrement By One</h1>
+            <div className="actionButtons">
+                <button onClick={handleIncrement}>Increment</button>
+                <button onClick={handleDecrement}>Decrement</button>
+            </div>
         </div>
     )
 }

@@ -3,8 +3,10 @@ import { connect } from "react-redux"
 function DisplayCounter(props) {
     return (
         <div>
-            <h1>DisplayCounter</h1>
-            <h2>{props.count}</h2>
+            <h1 className="actionHeaders">Counter:</h1>
+            <div>
+                <h1 className="numberDisplay">{props.count}</h1>
+            </div>
         </div>
     )
 }
