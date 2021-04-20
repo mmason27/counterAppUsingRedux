@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { connect } from "react-redux"
+import * as actionCreators from './store/creators/actionCreators'
 
 function Counter(props) {
 
@@ -56,11 +57,11 @@ const mapStateToProps = (state) => {
 //mapDistpatchToProps is used for dispatching actions to the store. Dispatch is a function of the Redux store. You call store.dispatch to dispatch an action - which is the only way to trigger a state change (ie for the purpose of updating the state)
 const mapDispatchToProps = (dispatch) => {
     return {
-        onIncrement: () => dispatch({type: "INCREMENT"}),
-        onDecrement: () => dispatch({type: "DECREMENT"}),
-        onAdd: (value) => dispatch({type: "ADD", payload: value}),
+        onIncrement: () => dispatch(actionCreators.incrementCounter()),
+        onDecrement: () => dispatch(actionCreators.decrementCounter()),
+        onAdd: (payload) => dispatch(actionCreators.addValue(payload)),
         //"payload" is the data we are interested in transporting
-        onSubtract: (value) => dispatch({type: "SUBTRACT", payload: value})
+        onSubtract: (payload) => dispatch(actionCreators.subtractValue(payload))
     }
 }
 

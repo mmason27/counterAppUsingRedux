@@ -1,3 +1,5 @@
+import * as actionTypes from './actions/actionTypes'
+
 //initializing the global state
 const initialState = {
     count: 0
@@ -5,30 +7,31 @@ const initialState = {
 
 //reducer is a function that gives us access to the state and returns the UPDPATED state
 const reducer = (state = initialState, action) => {
-    if (action.type == "INCREMENT") {
-        return {
-            ...state,
-            count: state.count + 1
-        }
-    } else if (action.type == "DECREMENT") {
-        return {
-            ...state,
-            count: state.count - 1
-        }
-    } else if (action.type == "ADD") {
-        return {
-            ...state,
-            count: state.count + action.payload
-        }
-    } else if (action.type == "SUBTRACT") {
-        return {
-            ...state,
-            count: state.count - action.payload
-        }
+
+    switch(action.type) {
+        case actionTypes.INCREMENT:
+            return {
+                ...state,
+                count: state.count + 1
+            }
+        case actionTypes.DECREMENT:
+            return {
+                ...state,
+                count: state.count - 1
+            }
+        case actionTypes.ADD:
+            return {
+                ...state,
+                count: state.count + action.payload
+            }
+        case actionTypes.SUBTRACT:
+            return {
+                ...state,
+                count: state.count - action.payload
+            }
+        default:
+            return state
     }
-    
-    return state
-    //here we're returning the updated state
 }
 
 export default reducer
